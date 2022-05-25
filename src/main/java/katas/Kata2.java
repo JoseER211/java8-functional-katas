@@ -16,10 +16,9 @@ public class Kata2 {
     public static List<ImmutableMap<String, Integer>> execute() {
         List<Movie> movies = DataUtil.getMovies();
 
-        return movies
-                .stream()
+        return movies.stream()
                 .filter(movie -> movie.getRating() == 5.0)
-                .map(movie -> ImmutableMap.of("k1", movie.getId()))
+                .map(movie -> ImmutableMap.of("id", movie.getId()))
                 .collect(Collectors.toList());
     }
 }
