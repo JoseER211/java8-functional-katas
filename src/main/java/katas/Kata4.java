@@ -21,7 +21,8 @@ public class Kata4 {
                 .flatMap(movieList -> movieList.getVideos().stream()
                         .map(movie -> ImmutableMap.of("id", movie.getId(), "title", movie.getTitle(),
                                 "boxart", movie.getBoxarts().stream()
-                                        .filter(boxArt -> boxArt.getWidth() == 150).findAny().get())))
+                                        .filter(boxArt -> boxArt.getWidth() == 150 && boxArt.getHeight() == 200)
+                                        .findAny().get())))
                 .collect(Collectors.toList());
     }
 }

@@ -21,8 +21,9 @@ public class Kata7 {
                 .flatMap(movieList -> movieList.getVideos().stream()
                         .map(video -> ImmutableMap.of("id", video.getId(), "title", video.getTitle(),
                                 "boxart", video.getBoxarts().stream()
-                                        .filter(boxArt -> boxArt.getWidth() > 150).findFirst().orElse(null).getUrl())))
+                                        .filter(boxArt -> boxArt.getWidth() > 150).findFirst())))
                 .collect(Collectors.toList());
+
 
     }
 }

@@ -15,6 +15,13 @@ public class Kata5 {
         List<Movie> movies = DataUtil.getMovies();
 
         return movies.stream()
-                .reduce((conjunto, ratio) -> conjunto.getRating() > ratio.getRating() ? conjunto : ratio).get().getRating();
+                .reduce((conjunto, ratio) -> {
+                            if (conjunto.getRating() > ratio.getRating()) {
+                                return conjunto;
+                            } else {
+                                return ratio;
+                            }
+                        }
+                ).get().getRating();
     }
 }
